@@ -1,3 +1,17 @@
-# WASM RAF Handler
+WASM RAF Handler
+=================================
 
-Crate for handling `requestAnimationFrame` loops
+## Testing
+
+```sh
+wasm-pack --test firefox
+```
+
+## Run the Demo Application
+
+```sh
+# In root
+wasm-pack build
+cd demo
+npm start 
+```
