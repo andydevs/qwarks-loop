@@ -1,4 +1,4 @@
-import * as raf from "wasm-raf-handler";
+import * as rafdemo from "wasm-raf-handler-demo";
 
-let output = raf.my_func(2, 4, 7)
-console.log("RAF my_func output =", output)
+let z = rafdemo.my_func(2, 3, 5)
+console.log('my_func result =', z)
