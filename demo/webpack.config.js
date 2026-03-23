@@ -18,8 +18,8 @@ module.exports = {
         watchFiles: [
             path.resolve(__dirname, "*.js"),
             path.resolve(__dirname, "*.html"),
-            path.resolve(__dirname, "../pkg/*.js"),
-            path.resolve(__dirname, "../pkg/*.wasm")
+            path.resolve(__dirname, "pkg/*.js"),
+            path.resolve(__dirname, "pkg/*.wasm")
         ]
     },
     plugins: [

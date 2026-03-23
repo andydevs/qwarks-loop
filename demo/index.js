@@ -1,4 +1,28 @@
-import * as rafdemo from "wasm-raf-handler-demo";
+import { RAFDemoHandler } from "wasm-raf-handler-demo"
 
-let z = rafdemo.my_func(2, 3, 5)
-console.log('my_func result =', z)
+try {
+    // Get outputs
+    let framecount = document.querySelector('#raf-framecount')
+    let timestamp = document.querySelector('#raf-timestamp')
+    let delta = document.querySelector('#raf-delta')
+
+    // Create new handler
+    let handler = RAFDemoHandler.new(framecount, timestamp, delta)
+
+    // Attach buttons
+    document
+        .querySelector('#ctrl-start')
+        .addEventListener('click', (event) => {
+            event.stopPropagation()
+            handler.start()
+        })
+    document
+        .querySelector('#ctrl-stop')
+        .addEventListener('click', (event) => {
+            event.stopPropagation()
+            handler.stop()
+        })
+}
+catch (error) {
+    console.error(error)
+}
