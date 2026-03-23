@@ -1,13 +1,13 @@
 import { RAFDemoHandler } from "wasm-raf-handler-demo"
 
 try {
-    // Get outputs
-    let framecount = document.querySelector('#raf-framecount')
-    let timestamp = document.querySelector('#raf-timestamp')
-    let delta = document.querySelector('#raf-delta')
-
     // Create new handler
-    let handler = RAFDemoHandler.new(framecount, timestamp, delta)
+    let handler = RAFDemoHandler.new(
+        document.querySelector('#raf-framecount'),
+        document.querySelector('#raf-timestamp'),
+        document.querySelector('#raf-delta'),
+        document.querySelector('#raf-fps')
+    )
 
     // Attach buttons
     document

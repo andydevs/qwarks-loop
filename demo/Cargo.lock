@@ -25,16 +25,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "demo"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "wasm-bindgen",
- "wasm-raf-handler",
- "web-sys",
-]
-
-[[package]]
 name = "js-sys"
 version = "0.3.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -140,6 +130,18 @@ dependencies = [
 name = "wasm-raf-handler"
 version = "0.1.0"
 dependencies = [
+ "console_error_panic_hook",
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
+name = "wasm-raf-handler-demo"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "wasm-bindgen",
+ "wasm-raf-handler",
  "web-sys",
 ]
 

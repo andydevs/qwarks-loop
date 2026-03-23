@@ -5,10 +5,10 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "start:rust": "cross-env CHOKIDAR_USEPOLLING=1 chokidar 'Cargo.toml' 'src/**/*.rs' -c 'npm run build:rust'",
+        "start:rust": "cross-env CHOKIDAR_USEPOLLING=1 chokidar 'Cargo.toml' 'src/**/*.rs' '../src/**/*.rs' -c 'npm run build:rust'",
         "start:web": "webpack serve --mode development",
         "build:web": "webpack --mode production",
-        "build:rust": "wasm-pack build --target bundler --out-name index --out-dir pkg",
+        "build:rust": "wasm-pack build --target bundler --out-dir pkg",
         "build": "npm-run-all build:rust build:web",
         "start": "npm-run-all build:rust --parallel start:rust start:web"
     },
@@ -21,7 +21,7 @@
     "author": "Andydevs",
     "license": "MIT",
     "dependencies": {
-        "wasm-raf-handler-demo": "file:pkg"
+        "wasm-raf-handler-demo": "file:pkg/wasm_raf_handler_demo.js"
     },
     "devDependencies": {
         "chokidar-cli": "^3.0.0",
