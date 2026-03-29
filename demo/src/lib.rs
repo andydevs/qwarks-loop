@@ -16,7 +16,7 @@ use wasm_raf_handler as raf;
 
 /// JavaScript-facing controller for the demo animation loop.
 ///
-/// Holds an optional [`raf::Loop`] handle (present only while running) and a
+/// Holds an optional [`raf::RAFLoop`] handle (present only while running) and a
 /// shared [`RenderCtx`] that writes frame statistics to the DOM.
 #[wasm_bindgen]
 pub struct RAFDemoHandler {
@@ -63,7 +63,7 @@ impl RAFDemoHandler {
         }
     }
 
-    /// Stops the animation loop by dropping the [`raf::Loop`] handle.
+    /// Stops the animation loop by dropping the [`raf::RAFLoop`] handle.
     ///
     /// Calling `stop` while the loop is not running has no effect.
     pub fn stop(&mut self) {
