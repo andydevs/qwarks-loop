@@ -20,7 +20,7 @@ use wasm_raf_handler as raf;
 /// shared [`RenderCtx`] that writes frame statistics to the DOM.
 #[wasm_bindgen]
 pub struct RAFDemoHandler {
-    rafloop: Option<raf::Loop>,
+    rafloop: Option<raf::RAFLoop>,
     ctx: Rc<RenderCtx>,
 }
 
@@ -51,7 +51,7 @@ impl RAFDemoHandler {
     pub fn start(&mut self) {
         if self.rafloop.is_none() {
             let rndr = Rc::clone(&self.ctx);
-            let rafloop = raf::Loop::new(move |ctx: raf::Ctx| {
+            let rafloop = raf::RAFLoop::new(move |ctx: raf::FrameCtx| {
                 rndr.render_frame_count(ctx.frame_count);
                 rndr.render_timestamp(ctx.timestamp);
                 rndr.render_delta(ctx.delta);
