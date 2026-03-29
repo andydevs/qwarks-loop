@@ -1,3 +1,6 @@
+/// Logs a formatted message to the browser console via `console.log`.
+///
+/// Accepts the same format string syntax as [`format!`].
 #[macro_export]
 macro_rules! console_log {
     ($($t:tt)*) => {
@@ -5,6 +8,10 @@ macro_rules! console_log {
     };
 }
 
+/// Attempts to cast a `JsValue` to a concrete JS type via `dyn_into`.
+///
+/// Returns `Ok(T)` on success, or `Err(JsValue)` with a descriptive message
+/// that includes the variable name, expected type, and the actual value received.
 #[macro_export]
 macro_rules! checked_cast {
     ($type:ty, $input:ident) => {{
@@ -18,4 +25,5 @@ macro_rules! checked_cast {
     }};
 }
 
+/// Milliseconds per second, used to convert delta time to an FPS value.
 pub const MS_PER_SEC: f64 = 1000.00;

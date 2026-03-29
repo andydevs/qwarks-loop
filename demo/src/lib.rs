@@ -1,3 +1,9 @@
+//! WebAssembly demo for `wasm-raf-handler`.
+//!
+//! Exposes [`RAFDemoHandler`] to JavaScript via `wasm-bindgen`. The handler
+//! drives a `requestAnimationFrame` loop that updates four HTML elements with
+//! live per-frame statistics.
+
 #[macro_use]
 mod macros;
 mod render;
@@ -8,6 +14,10 @@ use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 use wasm_raf_handler as raf;
 
+/// JavaScript-facing controller for the demo animation loop.
+///
+/// Holds an optional [`raf::Loop`] handle (present only while running) and a
+/// shared [`RenderCtx`] that writes frame statistics to the DOM.
 #[wasm_bindgen]
 pub struct RAFDemoHandler {
     rafloop: Option<raf::Loop>,
@@ -16,6 +26,12 @@ pub struct RAFDemoHandler {
 
 #[wasm_bindgen]
 impl RAFDemoHandler {
+    /// Creates a new handler bound to four DOM elements.
+    ///
+    /// Each argument must be an `HtmlElement` (passed as a `JsValue` from JS).
+    /// Returns an error if any value fails the cast.
+    ///
+    /// The loop does **not** start automatically; call [`start`](Self::start) to begin rendering.
     pub fn new(
         framecount: JsValue,
         timestamp: JsValue,
@@ -28,6 +44,10 @@ impl RAFDemoHandler {
         })
     }
 
+    /// Starts the animation loop if it is not already running.
+    ///
+    /// Each frame updates the frame count, timestamp, delta, and FPS elements.
+    /// Calling `start` while the loop is already running has no effect.
     pub fn start(&mut self) {
         if self.rafloop.is_none() {
             let rndr = Rc::clone(&self.ctx);
@@ -43,6 +63,9 @@ impl RAFDemoHandler {
         }
     }
 
+    /// Stops the animation loop by dropping the [`raf::Loop`] handle.
+    ///
+    /// Calling `stop` while the loop is not running has no effect.
     pub fn stop(&mut self) {
         self.rafloop.take();
     }
