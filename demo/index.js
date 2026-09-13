@@ -1,4 +1,4 @@
-import { RAFDemoHandler } from "wasm-raf-handler-demo"
+import { RAFDemoHandler } from 'qwarks-loop-demo'
 
 try {
     // Create new handler
@@ -10,19 +10,14 @@ try {
     )
 
     // Attach buttons
-    document
-        .querySelector('#ctrl-start')
-        .addEventListener('click', (event) => {
-            event.stopPropagation()
-            handler.start()
-        })
-    document
-        .querySelector('#ctrl-stop')
-        .addEventListener('click', (event) => {
-            event.stopPropagation()
-            handler.stop()
-        })
-}
-catch (error) {
+    document.querySelector('#ctrl-start').addEventListener('click', (event) => {
+        event.stopPropagation()
+        handler.start()
+    })
+    document.querySelector('#ctrl-stop').addEventListener('click', (event) => {
+        event.stopPropagation()
+        handler.stop()
+    })
+} catch (error) {
     console.error(error)
 }

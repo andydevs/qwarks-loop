@@ -1,5 +1,5 @@
 {
-    "name": "wasm-raf-handler-demo",
+    "name": "qwarks-loop-demo-web",
     "version": "0.1.0",
     "description": "Demo Crate for handling `requestAnimationFrame` loops",
     "private": true,
@@ -21,7 +21,7 @@
     "author": "Andydevs",
     "license": "MIT",
     "dependencies": {
-        "wasm-raf-handler-demo": "file:pkg/wasm_raf_handler_demo.js"
+        "qwarks-loop-demo": "file:./pkg"
     },
     "devDependencies": {
         "chokidar-cli": "^3.0.0",
