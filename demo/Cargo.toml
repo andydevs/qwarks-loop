@@ -9,7 +9,7 @@ crate-type = ["cdylib"]
 [dependencies]
 console_error_panic_hook = "0.1.7"
 wasm-bindgen = "0.2.114"
-wasm-raf-handler = { version = "0.1.0", path = ".." }
+qwarks_loop = { version = "0.1.0", path = "../qwarks_loop" }
 web-sys = { version = "0.3.91", features = [
     "Document",
     "Element",

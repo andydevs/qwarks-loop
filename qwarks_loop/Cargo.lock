@@ -181,6 +181,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "qwarks_loop"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "wasm-bindgen",
+ "wasm-bindgen-test",
+ "web-sys",
+]
+
+[[package]]
 name = "rustversion"
 version = "1.0.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -374,16 +384,6 @@ name = "wasm-bindgen-test-shared"
 version = "0.2.114"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cfe29135b180b72b04c74aa97b2b4a2ef275161eff9a6c7955ea9eaedc7e1d4e"
-
-[[package]]
-name = "wasm-raf-handler"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "wasm-bindgen",
- "wasm-bindgen-test",
- "web-sys",
-]
 
 [[package]]
 name = "web-sys"

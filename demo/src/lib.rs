@@ -12,7 +12,7 @@ use macros::MS_PER_SEC;
 use render::RenderCtx;
 use std::rc::Rc;
 use wasm_bindgen::prelude::*;
-use wasm_raf_handler as raf;
+use qwarks_loop as raf;
 
 /// JavaScript-facing controller for the demo animation loop.
 ///
