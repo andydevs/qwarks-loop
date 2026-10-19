@@ -1,3 +1,5 @@
+> Deprecated: added to the main [QWARKS](https://github.com/andydevs/qwarks) repository
+
 WASM RAF Handler
 ===========================================================================================
 
